@@ -18,6 +18,7 @@ W myśl powyższego projektu należałoby założyć u nas czasopismo ściśle n
 
 """
 from Crypto.Random import get_random_bytes
+
 s = get_random_bytes(5000)
 
 def count_bytes(text):
