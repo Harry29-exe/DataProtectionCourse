@@ -50,7 +50,7 @@ from math import log2
 
 H = 0.0
 for i in range(256):
-    if(prob[i] > 0.0):
+    if prob[i] > 0.0:
         H -= prob[i] * log2(prob[i])
 
 print("Entropia: " + str(H))

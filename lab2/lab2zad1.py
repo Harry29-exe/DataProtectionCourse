@@ -24,24 +24,23 @@ def calc_entropy(prob):
 
 
 def check_password(password):
-    passSum = ''.join(password)
-    passBytes = bytes(passSum, "utf-8")
+    pass_sum = ''.join(password)
+    password_bytes = bytes(pass_sum, "utf-8")
 
-    # hack!
-    cypher = ARC4.new(passBytes)  # hack!
-    decryptedText = cypher.decrypt(encodedText)
-    if calc_entropy(calc_prob(decryptedText)) < 7.0:
-        print(decryptedText)
+    cypher = ARC4.new(password_bytes)
+    decrypted_text = cypher.decrypt(encodedText)
+    if calc_entropy(calc_prob(decrypted_text)) < 7.0:
+        print(password_bytes)
+        print(decrypted_text)
 
 
 encodedText = open("crypto.rc4", "rb").read()
 allCharacters = string.ascii_lowercase
-# + string.ascii_uppercase
 password = ['a', 'a', 'a']
 ARC4.key_size = range(1, 256)
 
-for password[0] in allCharacters:
 
+for password[0] in allCharacters:
     check_password([password[0]])
 
 for password[0] in allCharacters:
