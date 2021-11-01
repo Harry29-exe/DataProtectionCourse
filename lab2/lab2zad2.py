@@ -18,7 +18,6 @@ ascii_big_min = 65
 ascii_big_max = 90
 ascii_big_len = 90 - 64
 valid_chars = split(string.ascii_lowercase + string.ascii_uppercase)
-print(valid_chars)
 
 
 def move(string, n):
@@ -28,6 +27,8 @@ def move(string, n):
             new_s += chr((ord(c) + n - ascii_small_min) % ascii_small_len + ascii_small_min)
         elif ascii_big_min <= ord(c) <= ascii_big_max:
             new_s += chr((ord(c) + n - ascii_big_min) % ascii_big_len + ascii_big_min)
+        else:
+            new_s += c
 
     return new_s
 
@@ -43,15 +44,20 @@ def count_bytes(text):
     return count
 
 
-encoded = move(s, n)
-encoded_count = count_bytes(encoded)
-text_count = count_bytes(s)
-print(encoded_count)
+def encode_and_show_diagram(s, title):
+    encoded = move(s, n)
+    encoded_count = count_bytes(encoded)
+    text_count = count_bytes(s)
 
-plt.bar(valid_chars, encoded_count)
-plt.bar(valid_chars, text_count)
-plt.show()
-#
-# plt.bar(lista_etykiet_1, lista_licznosci_etykiet_1)
-# plt.bar(lista_etykiet_2, lista_licznosci_etykiet_2)
-# plt.show()
+    print(s)
+    print(encoded)
+
+    plt.title(title)
+    plt.bar(valid_chars, encoded_count)
+    plt.bar(valid_chars, text_count)
+    plt.show()
+
+
+encode_and_show_diagram(s, "PL")
+s = str(open("CUP2.txt", "rb").read())
+encode_and_show_diagram(s, "ENG")

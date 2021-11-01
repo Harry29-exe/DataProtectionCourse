@@ -7,7 +7,7 @@ from Crypto.Random import get_random_bytes
 from PIL import Image
 import BMPcrypt
 
-
+# Methods creating
 def calc_prob(s):
     prob = np.zeros(256)
     for ch in s:
@@ -45,7 +45,7 @@ def decrypt_full(input_filename, mode, key, iv=None):
     img_out.close()
     img_in.close()
 
-
+# decode ecb
 path = "/home/kamil/PycharmProjects/DataProtectionCourse/lab3/"
 filename = "security_ECB_encrypted.bmp"
 
@@ -66,10 +66,14 @@ for i in possibleValue:
         real_key = key_bytes
         first_128_bits = decrypted_data[:128]
 
-# decrypt_full(path + filename, "ECB", real_key)
+decrypt_full(path + filename, "ECB", real_key)
 
+
+#decrypt cbc
 
 cbc_filename = "security_CBC_encrypted.bmp"
+
+
 def decrypt_full_mod(input_filename, mode, key, first_128):
     img_in = open(input_filename, "rb")
     data = img_in.read()
@@ -85,11 +89,12 @@ def decrypt_full_mod(input_filename, mode, key, first_128):
     in_name = in_name_parts[0].split('_')
     # mode = in_name[len(in_name) - 2]
 
-    output_filename = "decrypted.bmp"
+    output_filename = "decrypted_cbc.bmp"
     img_out = open(output_filename, "wb")
     img_out.write(decrypted_data)
     img_out.close()
     img_in.close()
+
 
 
 decrypt_full_mod(cbc_filename, "CBC", real_key, first_128_bits)
