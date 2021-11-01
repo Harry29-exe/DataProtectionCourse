@@ -23,8 +23,8 @@ def calc_entropy(prob):
     return H
 
 
-def check_password(password):
-    pass_sum = ''.join(password)
+def check_password(passw, encodedText):
+    pass_sum = ''.join(passw)
     password_bytes = bytes(pass_sum, "utf-8")
 
     cypher = ARC4.new(password_bytes)
@@ -32,24 +32,30 @@ def check_password(password):
     if calc_entropy(calc_prob(decrypted_text)) < 7.0:
         print(password_bytes)
         print(decrypted_text)
+        return True
 
 
-encodedText = open("crypto.rc4", "rb").read()
+encodedText1 = open("crypto.rc4", "rb").read()
+encodedText2 = open("crypto2.rc4", "rb").read()
 allCharacters = string.ascii_lowercase
 password = ['a', 'a', 'a']
 ARC4.key_size = range(1, 256)
 
-
-for password[0] in allCharacters:
-    check_password([password[0]])
-
-for password[0] in allCharacters:
-    for password[1] in allCharacters:
-        check_password([password[0], password[1]])
-
+password_found = False
 for password[0] in allCharacters:
     for password[1] in allCharacters:
         for password[2] in allCharacters:
-            check_password(password)
+            if check_password(password, encodedText1):
+                password_found = True
+    if password_found:
+        break
 
-    print(password[0])
+password_found = False
+for password[0] in allCharacters:
+    for password[1] in allCharacters:
+        for password[2] in allCharacters:
+            if check_password(password, encodedText2):
+                password_found = True
+    if password_found:
+        break
+
