@@ -92,8 +92,4 @@ def decrypt_full_mod(input_filename, mode, key, first_128):
     img_in.close()
 
 
-decrypt_full_mod(path + cbc_filename, "CBC", real_key, first_128_bits)
-# key = get_random_bytes(16)
-# BMPcrypt.encrypt_full(path + 'demo24_copy.bmp', "ECB", key)
-# print("success")
-# decrypt_full(path + "demo24_copy_ECB_encrypted.bmp", "ECB", key)
+decrypt_full_mod(cbc_filename, "CBC", real_key, first_128_bits)
