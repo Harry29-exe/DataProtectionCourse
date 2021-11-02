@@ -9,7 +9,7 @@ start_apr_md5 = time.time()
 for i in range(times_executed):
     passlib.hash.apr_md5_crypt.hash(random_bytes)
 
-time_apr_md5 = start_apr_md5 - start_apr_md5
+time_apr_md5 = time.time() - start_apr_md5
 
 start_bcrypt = time.time()
 for i in range(times_executed):
