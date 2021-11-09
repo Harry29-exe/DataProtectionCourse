@@ -4,7 +4,7 @@ from Crypto.Random import get_random_bytes
 
 random_bytes = "skjgkhbsdkdgjhdsbguisdalbglkjs"
 times_executed_md5 = pow(10, 4)
-times_executed_bcrypt = pow(10,2)
+times_executed_bcrypt = pow(10, 2)
 
 start_apr_md5 = time.time()
 for i in range(times_executed_md5):
