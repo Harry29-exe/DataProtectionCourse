@@ -55,3 +55,7 @@ if __name__ == '__main__':
     decrypted = bytes(output_data)
     print('...', decrypted[-15:-1])
     print('...', decrypted[0:16])
+
+# 1  0.47231316566467285
+# 2  0.23896336555480957
+# 4  0.13157916069030762
